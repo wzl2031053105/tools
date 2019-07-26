@@ -24,6 +24,10 @@ public class Files {
         // get file list where the path has
         File file = new File(path);
         // get the folder list
+        if(!file.exists()){
+            System.out.println(path+"不存在");
+            return;
+        }
         File[] array = file.listFiles();
         List<String> files = new ArrayList<String>();
         for (int i = 0; i < array.length; i++) {
