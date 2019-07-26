@@ -2,15 +2,18 @@ package org.tools.file;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.LineIterator;
+import org.apache.commons.lang3.time.DateFormatUtils;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Files {
     public static void main(String[] args) {
-        String path = "D:\\工作\\一账通文件\\20190726";
-        getFile(path);
+        String path = "D:\\工作\\一账通文件\\";
+        String syncDateStr = DateFormatUtils.format(new Date(), "yyyyMMdd");
+        getFile(path+syncDateStr);
     }
 
     /**
