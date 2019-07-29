@@ -13,20 +13,23 @@ public class Files {
     public static void main(String[] args) {
         String path = "D:\\工作\\一账通文件\\";
         String syncDateStr = DateFormatUtils.format(new Date(), "yyyyMMdd");
-        getFile(path+syncDateStr);
+        int a = getFile(path+syncDateStr);
+        int b = getFile(path+"20190727");
+        int c = getFile(path+"20190728");
+        System.out.println(a+b+c);
     }
 
     /**
      * 获取指定文件夹下所有文件名
      * @param path
      */
-    private static void getFile(String path) {
+    private static int getFile(String path) {
         // get file list where the path has
         File file = new File(path);
         // get the folder list
         if(!file.exists()){
             System.out.println(path+"不存在");
-            return;
+            return 0;
         }
         File[] array = file.listFiles();
         List<String> files = new ArrayList<String>();
@@ -44,7 +47,7 @@ public class Files {
                 System.out.println(array[i].getName()+"为文件夹");
             }
         }
-        getCount2(files,1);
+        return getCount2(files,1);
     }
     /**
      * 获取指定文件的行数
